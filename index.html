@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Tribute to Aryabhata</title>
+    <meta name="description" content="A tribute to Aryabhata, the father of Indian mathematics and astronomy.">
+    <link rel="stylesheet" href="style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lora:ital,wght@0,400;0,500;1,400&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <header class="hero fade-in">
+        <div class="hero-content">
+            <h1 id="title">Aryabhata</h1>
+            <p class="subtitle">The Father of Indian Mathematics & Astronomy</p>
+            <a href="#about" class="scroll-down">Discover His Legacy ↓</a>
+        </div>
+    </header>
+
+    <main id="main">
+        <section id="about" class="section fade-in">
+            <div class="container">
+                <h2>Introduction</h2>
+                <div class="intro-grid">
+                    <div id="img-div" class="image-wrapper">
+                        <img id="image"
+                            src="./images/aryabhata_portrait.png"
+                            alt="Stylized portrait of ancient Indian mathematician Aryabhata">
+                        <figcaption id="img-caption">Aryabhata (476–550 CE), Ancient Indian Mathematician and Astronomer</figcaption>
+                    </div>
+                    <div id="tribute-info" class="about-text">
+                        <p>Aryabhata (476–550 CE) was the first of the major mathematician-astronomers from the classical age of Indian mathematics and Indian astronomy. His major works include the <strong>Aryabhatiya</strong> and the <strong>Arya-siddhanta</strong>.</p>
+                        <p>Long before the onset of the modern scientific era, Aryabhata proposed profound astronomical and mathematical theories. He brilliantly conceptualized the place-value system with zero, approximated the value of π, and discovered that the Earth rotates on its axis, laying down foundations that echo through centuries of global science.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section bg-light fade-in">
+            <div class="container">
+                <h2>Key Achievements</h2>
+                <div class="achievements-grid">
+                    <div class="card">
+                        <h3>Approximation of Pi (π)</h3>
+                        <p>He accurately approximated the value of pi to 3.1416 and suggested that it might be irrational, an incredible revelation for his time.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Earth's Rotation</h3>
+                        <p>Proposed that the Earth rotates on its axis daily—contrary to prevalent geocentric theories—explaining the apparent movement of stars.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Sine Tables & Trigonometry</h3>
+                        <p>Developed fundamental trigonometric functions such as sine (jya), cosine (kojya), and versine (utkrama-jya), which later influenced global mathematics.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section fade-in">
+            <div class="container">
+                <blockquote class="quote-box">
+                    <p>"Just as a man in a boat moving forward sees the stationary objects as moving backward, just so are the stationary stars seen by the people at Lanka as moving exactly towards the west."</p>
+                    <cite>- Aryabhatiya, Golapada Section</cite>
+                </blockquote>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container text-center fade-in">
+            <p>Learn more about his incredible life on <a id="tribute-link"
+                    href="https://en.wikipedia.org/wiki/Aryabhata" target="_blank"
+                    rel="noopener noreferrer">Wikipedia</a>.</p>
+            <p class="footer-note">Designed with ♥ as a tribute.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Intersection Observer for fade-in animations on scroll
+        const faders = document.querySelectorAll('.fade-in');
+        const appearOptions = {
+            threshold: 0.15,
+            rootMargin: "0px 0px -50px 0px"
+        };
+        const appearOnScroll = new IntersectionObserver(function (entries, observer) {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) {
+                    return;
+                } else {
+                    entry.target.classList.add('appear');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, appearOptions);
+
+        faders.forEach(fader => {
+            appearOnScroll.observe(fader);
+        });
+    </script>
+</body>
+
+</html>
